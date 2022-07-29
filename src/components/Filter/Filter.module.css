@@ -1,0 +1,19 @@
+   .filter {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    margin: 5px auto;
+  } 
+  
+  .input {
+    margin-bottom: 30px;
+    height: 30px;
+    border-radius: 5px;
+    width: 250px;
+    background-color: rgb(182, 179, 196);
+  }
+  
+  .label {
+    margin-bottom: 8px;
+    font-size: 20px;
+  }

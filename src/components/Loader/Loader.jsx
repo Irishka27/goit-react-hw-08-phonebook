@@ -1,15 +1,17 @@
-import { Audio } from  'react-loader-spinner'
+import { css } from '@emotion/react';
+import PuffLoader from 'react-spinners/PuffLoader';
+import BeatLoader from 'react-spinners/BeatLoader';
 
-export default function Loader() {
-    return (
-   <Audio
-    height = "80"
-    width = "80"
-    radius = "9"
-    color = 'green'
-    ariaLabel = 'three-dots-loading'     
-    wrapperStyle
-    wrapperClass
-   />
-   )
-    }
+const override = css`
+  display: block;
+  margin: 0 auto;
+  margin-top: 100px;
+`;
+
+export const Loader = () => {
+  return <PuffLoader color="#4f95da" size={150} css={override} />;
+};
+
+export const LoaderButtons = () => {
+  return <BeatLoader color="#4f95da" size={10} />;
+};

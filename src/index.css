@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,10 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(113, 182, 24, 0.801);
+  background-color: rgb(221, 224, 20);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.MuiOutlinedInput-input
+  MuiInputBase-input
+  MuiInputBase-inputAdornedEnd
+  css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+  background: none;
 }

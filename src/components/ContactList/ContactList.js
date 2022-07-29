@@ -1,29 +1,41 @@
-import { useFetchContactsQuery } from 'redux/phonebook/phonebook-slice';
-import { useSelector } from 'react-redux';
-import { getFilter } from '../../redux/phonebook/phonebook-selectors';
-import Loader from 'components/Loader';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  contactsOperations,
+  contactsSelectors,
+  contactsActions,
+} from 'redux/phonebook';
 import ContactListItem from './ContactListItem';
+import { Loader } from 'components/Loader';
 import s from './ContactList.module.css';
 
 const ContactList = () => {
-  const filter = useSelector(getFilter);
-  const { data: contacts, isFetching } = useFetchContactsQuery();
+  const contacts = useSelector(contactsSelectors.getVisibleContacts);
+  const loader = useSelector(contactsSelectors.getLoader);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(contactsOperations.fetchContacts());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (contacts.length === 0) dispatch(contactsActions.changeFilter(''));
+  }, [contacts.length, dispatch]);
 
   return (
     <>
-      {isFetching && <Loader/>}
-      {contacts && (
+      {loader && <Loader />}
+      {contacts.length > 0 ? (
         <ul className={s.list}>
-          {contacts
-            .filter(contact =>
-              contact.name.toLowerCase().includes(filter.toLowerCase())
-            )
-            .map(({ name, number, id }) => {
-              return (
-                <ContactListItem name={name} number={number} key={id} id={id} />
-              );
-            })}
+          <p>Total amount of contacts: {contacts.length}</p>
+          {contacts.map(contact => (
+            <ContactListItem key={contact.id} {...contact} />
+          ))}
         </ul>
+      ) : (
+        <p className={s.total} style={{ fontWeight: 'bold' }}>
+          Add your first contact
+        </p>
       )}
     </>
   );

@@ -1,9 +1,10 @@
 .Section {
-    margin: 0 auto;
-    padding: 20px;
-    width: 600px;
-  }
-  
-  .title {
-    text-align: center;
-  }
+  margin: 0 auto;
+  padding: 20px;
+  width: 600px;
+  margin-top: 40px;
+}
+
+.title {
+  text-align: center;
+}

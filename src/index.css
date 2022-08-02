@@ -19,3 +19,7 @@ code {
   css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
   background: none;
 }
+
+.MenuItem {
+  background-color: gray;
+}

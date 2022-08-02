@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from 'redux/auth';
 import { Stack, Typography, IconButton } from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout'
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
@@ -16,7 +16,9 @@ export default function UserMenu() {
         aria-label="logout"
         color="secondary"
         onClick={() => dispatch(authOperations.logOut())}
-      ><LogoutIcon /></IconButton>
+      >
+        <LogoutIcon />
+      </IconButton>
     </Stack>
   );
 }

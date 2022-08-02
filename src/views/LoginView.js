@@ -70,6 +70,8 @@ export default function LoginView() {
           />
 
           <TextField
+            selected
+            className="MenuItem"
             type={showPassword ? 'text' : 'password'}
             name="password"
             value={password}
